@@ -10,13 +10,13 @@ import { PermissionConfig } from './PermissionConfig';
 
 
 const AUTH_ROLE_PERMISSIONS_PROVIDERS: any[] = [
-  AuthorizationService,
-  AuthRolePermission
+    AuthorizationService,
+    AuthRolePermission
 ];
 
 export function providePermission(permissionConfig: PermissionConfig): any[] {
-  return [
-    ...AUTH_ROLE_PERMISSIONS_PROVIDERS,
-    { provide: PermissionConfig, useValue: permissionConfig }
-  ];
+    return [
+        ...AUTH_ROLE_PERMISSIONS_PROVIDERS,
+        { provide: PermissionConfig, useValue: permissionConfig }
+    ];
 };

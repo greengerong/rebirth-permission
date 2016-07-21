@@ -14,5 +14,5 @@ export class PermissionConfig {
     storageType?: StorageType;
     auth?: AuthTokenConfig;
 }
-;
+
 
