@@ -98,6 +98,6 @@
   "homepage": "https://github.com/greengerong/rebirth-permission#readme",
   "dependencies": {
     "rebirth-http": "0.0.4",
-    "rebirth-storage": "0.0.2"
+    "rebirth-storage": "0.0.3"
   }
 }
