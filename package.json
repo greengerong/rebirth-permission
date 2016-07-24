@@ -15,7 +15,7 @@
     "build": "tsc",
     "lint": "tslint 'src/**/*.ts'",
     "pretest": "npm run lint",
-    "test": "karma start",
+    "xtest": "karma start",
     "karma:debug": "karma start --auto-watch --no-single-run --browsers Chrome",
     "start": "npm run build",
     "typedoc": "typedoc",
