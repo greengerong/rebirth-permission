@@ -64,10 +64,10 @@ npm install rebirth-permission --save
 
 ```
 
-** `/manage/home` resource can be access by Admin and User.
-** We can use `AuthRolePermission` to control access by roles.
-** We can use `AuthLoginPermission` to control access by login or not.
-** We can setup `jwt` token by another lib [`rebirth-http`](https://github.com/greengerong/rebirth-http).
+* `/manage/home` resource can be access by Admin and User.
+* We can use `AuthRolePermission` to control access by roles.
+* We can use `AuthLoginPermission` to control access by login or not.
+* We can setup `jwt` token by another lib [`rebirth-http`](https://github.com/greengerong/rebirth-http).
 
 ### HTML resource access by role
 
