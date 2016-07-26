@@ -10,18 +10,18 @@ import { RebirthRoleDirective } from './RebirthRole.directive';
 import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
 
 export const AUTH_ROLE_PERMISSIONS_DIRECTIVE: any[] = [
-  RebirthRoleDirective
+    RebirthRoleDirective
 ];
 
 const AUTH_ROLE_PERMISSIONS_PROVIDERS: any[] = [
-  REBIRTH_STORAGE_PROVIDERS,
-  AuthorizationService,
-  AuthRolePermission
+    REBIRTH_STORAGE_PROVIDERS,
+    AuthorizationService,
+    AuthRolePermission
 ];
 
 export function providePermission(permissionConfig: PermissionConfig): any[] {
-  return [
-    ...AUTH_ROLE_PERMISSIONS_PROVIDERS,
-    { provide: PermissionConfig, useValue: permissionConfig }
-  ];
+    return [
+        ...AUTH_ROLE_PERMISSIONS_PROVIDERS,
+        { provide: PermissionConfig, useValue: permissionConfig }
+    ];
 };
