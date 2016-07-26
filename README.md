@@ -97,7 +97,7 @@ npm install rebirth-permission --save
 
 ###  Permission in TypeScript
 
-We can inject `AuthorizationService` to call `isLogin` or 'hasRight' method.
+We can inject `AuthorizationService` to call `isLogin` or `hasRight` method.
 
 ```typescript
 import { Observable } from 'rxjs/Observable';
