@@ -12,13 +12,22 @@ npm install rebirth-permission --save
 
 ### Register `rebirth-permission` lib
 
-    import { providePermission, PermissionConfig, RebirthRoleDirective } from 'rebirth-permission';
-    
-    // auth config
-    const permissionConfig: PermissionConfig = { loginPage: '/manage/login' };
-    
-    
-    bootstrap(AppComponent,[...providePermission(permissionConfig)]);
+    @NgModule({
+      imports: [
+        SharedModule,
+        ROUTING,
+        RebirthPermissionModule.forRoot({ loginPage: '/manage/login' }),
+      ],
+      providers: [
+        LoginService
+      ],
+      declarations: [
+        ManageAppComponent,
+      ]
+    })
+    export class ManageAppModule {
+    }
+
 
 ### Register CurrentUser when login
 
