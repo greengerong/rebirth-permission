@@ -1,6 +1,6 @@
 {
   "name": "rebirth-permission",
-  "version": "0.0.2-build-1",
+  "version": "0.0.3",
   "author": "greengerong<grzx2210@163.com>",
   "description": "Angular2 front end permission; Role, jwt, token auth base.",
   "main": "dist/index.js",
