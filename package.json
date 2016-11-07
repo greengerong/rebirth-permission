@@ -1,6 +1,6 @@
 {
   "name": "rebirth-permission",
-  "version": "0.0.3",
+  "version": "0.0.3-beta-1",
   "author": "greengerong<grzx2210@163.com>",
   "description": "Angular2 front end permission; Role, jwt, token auth base.",
   "main": "dist/index.js",
@@ -23,14 +23,15 @@
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/"
   },
   "devDependencies": {
-    "@angular/common": "^2.1.1",
-    "@angular/compiler": "^2.1.1",
-    "@angular/core": "^2.1.1",
-    "@angular/forms": "^2.1.1",
-    "@angular/http": "^2.1.1",
-    "@angular/platform-browser": "^2.1.1",
-    "@angular/platform-browser-dynamic": "^2.1.1",
-    "@angular/router": "^3.1.1",
+    "@angular/common": "^2.1.2",
+    "@angular/compiler": "^2.1.2",
+    "@angular/core": "^2.1.2",
+    "@angular/forms": "^2.1.2",
+    "@angular/http": "^2.1.2",
+    "@angular/platform-browser": "^2.1.2",
+    "@angular/platform-browser-dynamic": "^2.1.2",
+    "@angular/compiler-cli": "^2.1.2",
+    "@angular/router": "^3.1.2",
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.38",
     "zone.js": "^0.6.23",
@@ -99,6 +100,6 @@
   },
   "homepage": "https://github.com/greengerong/rebirth-permission#readme",
   "dependencies": {
-    "rebirth-storage": "0.0.6"
+    "rebirth-storage": "0.0.6-beta-1"
   }
 }

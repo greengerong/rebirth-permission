@@ -1,27 +1,30 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": true,
-    "stripInternal": true,
+    "target": "es5",
+    "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noEmitOnError": false,
-    "noImplicitAny": false,
-    "noImplicitReturns": true,
-    "target": "es5",
     "sourceMap": false,
-    "inlineSources": false,
+    "declaration": true,
     "noEmitHelpers": false,
     "outDir": "dist",
     "rootDir": "src",
-    "skipLibCheck": true
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
   },
   "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
+    "node_modules"
+  ],
+  "files": [
+    "node_modules/typescript/lib/lib.es6.d.ts",
+    "src/index.ts",
+    "src/AuthLoginPermission.ts",
+    "src/Authorization.service.ts",
+    "src/AuthRolePermission.ts",
+    "src/PermissionConfig.ts",
+    "src/RebirthRole.directive.ts",
+    "src/rebirth-permission.module.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false,
@@ -29,6 +32,8 @@
     "rewriteTsconfig": false
   },
   "angularCompilerOptions": {
-    "strictMetadataEmit": true
+    "genDir": "aot",
+    "strictMetadataEmit": true,
+    "debug": false
   }
 }
