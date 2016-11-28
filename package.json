@@ -1,6 +1,6 @@
 {
   "name": "rebirth-permission",
-  "version": "0.0.3-beta-1",
+  "version": "0.0.4",
   "author": "greengerong<grzx2210@163.com>",
   "description": "Angular2 front end permission; Role, jwt, token auth base.",
   "main": "dist/index.js",
@@ -100,6 +100,6 @@
   },
   "homepage": "https://github.com/greengerong/rebirth-permission#readme",
   "dependencies": {
-    "rebirth-storage": "0.0.6-beta-1"
+    "rebirth-storage": "^0.0.7"
   }
 }
