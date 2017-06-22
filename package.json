@@ -1,14 +1,10 @@
 {
   "name": "rebirth-permission",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "greengerong<grzx2210@163.com>",
   "description": "Angular2 front end permission; Role, jwt, token auth base.",
   "main": "index.js",
   "typings": "index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
   "scripts": {
     "ngc": "ngc -p . && cp package.json ./dist",
     "watch": "tsc --watch",
