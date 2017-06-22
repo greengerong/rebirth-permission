@@ -1,17 +1,14 @@
-export * from './Authorization.service';
-export * from './AuthRolePermission';
-export * from './RebirthRole.directive';
-export * from './PermissionConfig';
-
 import { NgModule, ModuleWithProviders, Optional } from '@angular/core';
 import { AuthorizationService } from './Authorization.service';
 import { AuthRolePermission } from './AuthRolePermission';
+import { AuthLoginPermission } from './AuthLoginPermission';
 import { PermissionConfig } from './PermissionConfig';
 import { RebirthRoleDirective } from './RebirthRole.directive';
 import { RebirthStorageModule } from 'rebirth-storage';
 
 export const AUTH_ROLE_PERMISSIONS_PROVIDERS: any[] = [
     AuthorizationService,
+    AuthLoginPermission,
     AuthRolePermission
 ];
 
@@ -24,9 +21,12 @@ export function providePermission(permissionConfig: PermissionConfig): any[] {
 
 
 @NgModule({
-    imports: [],
+    imports: [
+        RebirthStorageModule
+    ],
     declarations: [RebirthRoleDirective],
     exports: [
+        RebirthStorageModule,
         RebirthRoleDirective
     ],
     providers: []
