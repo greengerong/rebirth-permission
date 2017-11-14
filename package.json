@@ -95,6 +95,6 @@
   },
   "homepage": "https://github.com/greengerong/rebirth-permission#readme",
   "dependencies": {
-    "rebirth-storage": "5.0.1"
+    "rebirth-storage": "^5.0.1"
   }
 }
