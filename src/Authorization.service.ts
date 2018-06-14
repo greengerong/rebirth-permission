@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { StorageType, StorageService } from  'rebirth-storage';
 import { PermissionConfig } from './PermissionConfig';
 

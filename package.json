@@ -1,6 +1,6 @@
 {
   "name": "rebirth-permission",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "author": "greengerong<grzx2210@163.com>",
   "description": "Angular2 front end permission; Role, jwt, token auth base.",
   "main": "index.js",
@@ -33,7 +33,6 @@
     "@angular/service-worker": "^6.0.0",
     "@angular/language-service": "^6.0.0",
     "rxjs": "^6.1.0",
-    "rxjs-compat": "^6.1.0",
     "zone.js": "^0.8.26",
     "@angular-devkit/build-angular": "^0.6.0",
     "typescript": ">=2.7.0 <2.8.0",
