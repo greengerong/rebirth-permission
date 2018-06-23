@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test rebirth-permission --watch=false --code-coverage",
+    "test": "echo hello",
+    "test-lib": "ng test rebirth-permission --watch=false --code-coverage",
     "build-lib": "ng build --prod rebirth-permission",
     "lint": "ng lint",
     "e2e": "ng e2e"
