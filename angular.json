@@ -116,6 +116,46 @@
           }
         }
       }
+    },
+    "rebirth-permission": {
+      "root": "projects/rebirth-permission",
+      "sourceRoot": "projects/rebirth-permission/src",
+      "projectType": "library",
+      "prefix": "re",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/rebirth-permission/tsconfig.lib.json",
+            "project": "projects/rebirth-permission/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/rebirth-permission/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rebirth-permission/src/test.ts",
+            "tsConfig": "projects/rebirth-permission/tsconfig.spec.json",
+            "karmaConfig": "projects/rebirth-permission/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rebirth-permission/tsconfig.lib.json",
+              "projects/rebirth-permission/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "rebirth-permission-lib"

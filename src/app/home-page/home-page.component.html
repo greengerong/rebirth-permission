@@ -1,0 +1,16 @@
+<div>
+  <h1>Home page</h1>
+
+  <h4>指令*reRole用法：</h4>
+  <strong>修改当前用户角色:</strong>&nbsp;
+  <button class="btn btn-primary" (click)="roles('admin')">Admin</button>&nbsp;&nbsp;
+  <button class="btn btn-primary" (click)="roles('user')">User</button>
+  <div class="well">
+    <div *reRole="'admin'">当前用户为<strong>admin</strong>角色.</div>
+    <div *reRole="'user'">当前用户为<strong>user</strong>角色.</div>
+  </div>
+
+  <strong>测试基于角色的页面权限</strong>:&nbsp;
+  <a routerLink="/manage">管理页面</a>&nbsp;&nbsp;
+  <a routerLink="/user">用户页面</a>
+</div>

@@ -1,27 +1,131 @@
-# RebirthPermissionLib
+# @rebirth/rebirth-permission
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+[![Build Status](https://travis-ci.org/greengerong/rebirth-permission.svg?branch=master)](https://travis-ci.org/greengerong/rebirth-permission)
+[![dependcy](https://david-dm.org/greengerong/rebirth-permission.svg)](https://david-dm.org/greengerong/rebirth-permission)
+[![dev dependcy](https://david-dm.org/greengerong/rebirth-permission/dev-status.svg)](https://david-dm.org/greengerong/rebirth-permission?type=dev)
+[![npm version](https://img.shields.io/npm/v/rebirth-permission.svg)](https://www.npmjs.com/package/rebirth-permission)
 
-## Development server
+> Angular2 front end permission
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Install
+```bash
+npm install rebirth-permission --save
+```
 
-## Build
+## How to use?
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Register `rebirth-permission` lib
 
-## Running unit tests
+    @NgModule({
+      imports: [
+        SharedModule,
+        ROUTING,
+        RebirthPermissionModule.forRoot({ loginPage: '/manage/login' }),
+      ],
+      providers: [
+        LoginService
+      ],
+      declarations: [
+        ManageAppComponent,
+      ]
+    })
+    export class ManageAppModule {
+    }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### Register CurrentUser when login
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```typescript
 
-## Further help
+  login(loginInfo: {email: string; password: string }): Observable<CurrentUser> {
+    const authorizationService = this.authorizationService;
+    const rebirthHttpProvider = this.rebirthHttpProvider;
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    return this.innerLogin(loginInfo)
+      .map(user => {
+        authorizationService.setCurrentUser(user);
+        rebirthHttpProvider.headers({ Authorization: user.token }); // rebirth-http register global token header
+        return user;
+      });
+  }
+  
+```
+
+### Config route role
+ 
+```typescript
+
+    import { RouterConfig } from '@angular/router';
+    import { ManageAppComponent } from './manage-app.component';
+    import { AuthRolePermission } from 'rebirth-permission';
+    
+    export const routes: RouterConfig = [
+      {
+        path: 'manage', component: ManageAppComponent,
+        children: [
+          { path: '', pathMatch: 'full', redirectTo: '/manage/login' },
+          { path: 'login', component: 'LoginComponent' },
+          {
+            path: 'home',
+            component: 'ManageHomeComponent',
+            data: { roles: ['Admin', 'User'] }, // can access roles
+            canActivate: [AuthRolePermission] // role access CanActivate
+          },
+        ]
+      }
+    ];
+
+```
+
+* `/manage/home` resource can be access by Admin and User.
+* We can use `AuthRolePermission` to control access by roles.
+* We can use `AuthLoginPermission` to control access by login or not.
+* We can setup `jwt` token by another lib [`rebirth-http`](https://github.com/greengerong/rebirth-http).
+
+### HTML resource access by role
+
+```typescript
+    import { Component } from '@angular/core';
+    import { AUTH_ROLE_PERMISSIONS_DIRECTIVE } from 'rebirth-permission';
+    
+    @Component({
+      selector: 'manage-home',
+      pipes: [],
+      providers: [],
+      directives: [...AUTH_ROLE_PERMISSIONS_DIRECTIVE],
+      styles: [
+        require('./manage-home.scss')
+      ],
+      template: require('./manage-home.html')
+    })
+    export class ManageHomeComponent {
+    
+    }
+```
+
+```html
+  <h2 *reRole="['Admin']">admin role</h2>
+  <h2 *reRole="['User']">user role</h2>
+```
+
+###  Permission in TypeScript
+
+We can inject `AuthorizationService` to call `isLogin` or `hasRight` method.
+
+```typescript
+import { Observable } from 'rxjs/Observable';
+import { StorageType, StorageService } from 'rebirth-storage';
+import { PermissionConfig } from './PermissionConfig';
+export declare class AuthorizationService {
+    constructor(storageService: StorageService, permissionConfig: PermissionConfig);
+    setStorageType(storageType: StorageType): void; // set storage type, default is localstroage
+    setCurrentUser(currentUser: any): void;
+    getCurrentUser(): any;
+    logout(): any; // clean current user storage
+    isLogin(): boolean;
+    hasRight(roles: any | any[]): Observable<boolean> | boolean;
+}
+```
+
